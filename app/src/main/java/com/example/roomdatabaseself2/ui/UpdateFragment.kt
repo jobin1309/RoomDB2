@@ -9,20 +9,22 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-
 import com.example.roomdatabaseself2.model.User
 import com.example.roomdatabaseself2.viewModel.UserViewModel
 import com.example.roomdb.R
 import com.example.roomdb.databinding.FragmentUpdateBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
-class UpdateFragment : Fragment() {
-
+@AndroidEntryPoint
+class UpdateFragment(): Fragment() {
 
     private lateinit var binding: FragmentUpdateBinding;
     private val args by navArgs<UpdateFragmentArgs>()
-
     private val viewModel: UserViewModel by viewModels()
+
+
 
 
     override fun onCreateView(

@@ -47,7 +47,7 @@ class UserAdapter(private var viewModel: UserViewModel) :
 
 
         holder.deleteBtn.setOnClickListener {
-            viewModel.deleteUser(item)
+            deleteUser(item)
         }
 
 
@@ -57,6 +57,11 @@ class UserAdapter(private var viewModel: UserViewModel) :
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(item)
             holder.itemView.findNavController().navigate(action)
         }
+
+    }
+
+    private fun deleteUser(item: User) {
+        viewModel.deleteUser(item)
 
     }
 

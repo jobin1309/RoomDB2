@@ -23,7 +23,10 @@ interface UserDao {
     @Query("DELETE FROM sqlite_sequence WHERE NAME='user_table'")
      fun resetId();
 
+
     @Query("SELECT * FROM user_table")
      fun readAll(): LiveData<List<User>>
+
+
 
 }

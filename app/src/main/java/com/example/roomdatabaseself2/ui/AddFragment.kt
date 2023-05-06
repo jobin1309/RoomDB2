@@ -12,9 +12,13 @@ import com.example.roomdatabaseself2.model.User
 import com.example.roomdatabaseself2.viewModel.UserViewModel
 import com.example.roomdb.R
 import com.example.roomdb.databinding.FragmentAddBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class AddFragment : Fragment() {
 
+@AndroidEntryPoint
+class AddFragment() : Fragment() {
+  
     private lateinit var binding: FragmentAddBinding;
     private val viewModel: UserViewModel by viewModels()
 

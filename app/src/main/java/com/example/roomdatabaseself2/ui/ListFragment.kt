@@ -14,8 +14,12 @@ import com.example.roomdatabaseself2.model.User
 import com.example.roomdatabaseself2.viewModel.UserViewModel
 import com.example.roomdb.R
 import com.example.roomdb.databinding.FragmentListBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class ListFragment : Fragment() {
+
+@AndroidEntryPoint
+class ListFragment: Fragment() {
 
     private lateinit var binding: FragmentListBinding;
 

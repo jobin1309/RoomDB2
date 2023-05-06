@@ -3,27 +3,23 @@ package com.example.roomdatabaseself2.viewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.roomdatabaseself2.adapter.UserAdapter
+
 import com.example.roomdatabaseself2.data.UserDatabase
 import com.example.roomdatabaseself2.model.User
 import com.example.roomdatabaseself2.userRepo.UserRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
-class UserViewModel(application: Application) : AndroidViewModel(application) {
-
-
-    val readAllData: LiveData<List<User>>
-    private var mRepository: UserRepository;
+import javax.inject.Inject
 
 
-    init {
-        var userDao = UserDatabase.getDatabase(application).userDao()
-        mRepository = UserRepository(userDao);
-        readAllData = mRepository.readAllData
+@HiltViewModel
+class UserViewModel @Inject constructor(private val mRepository: UserRepository) : ViewModel() {
 
-    }
+
+    val readAllData: LiveData<List<User>> = mRepository.readAllData
 
 
     fun addUser(user: User) {
@@ -39,6 +35,8 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
 
         }
     }
+
+
 
     fun deleteUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) {

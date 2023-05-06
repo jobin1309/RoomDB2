@@ -6,7 +6,10 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHost
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.roomdb.R
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController;
